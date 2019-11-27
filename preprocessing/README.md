@@ -41,4 +41,4 @@ Expected data structure:
 ## Usage
 First use create_ds_hyena.ipynb to create datasets in the format [id, spectrogram, label]. The file creates a dataset for just one hyena at a time as the hyena dataset is quite large. Set the paths at the top of the file and then run each code block in order. Repeat for all five hyenas.
 
-Then use train_val_test_hyena.ipynb to create the train, validation and test hyena datasets in both non normalised and PCEN format. Set the paths at the top of the file and then run each code block in order.
+Then use train_val_test_hyena.ipynb to create the train, validation and test hyena datasets in both non normalised and PCEN format. Set the paths at the top of the file to the datasets created in the previous step and then run each code block in order.
