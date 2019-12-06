@@ -67,30 +67,18 @@ sfid = 'baseline_PCEN'
 
 
 def create_pretrain_model(freeze_layers, pre_trained_model_path):
-	"""
-	# Arguments
-		freeze_layers: Boolean, whether to freeze layers. 
-					   The output layer always remains trainable.
+    """Load pretrained model and unfreeze all or the last layer.
+        # Arguments
+		freeze_layers: Boolean, whether to freeze layers. Output layer always remains trainable.
 		pre_trained_model_path: path for pre trained model.
 
 	# Returns
-		Pretrained Keras Sequential model which can then be compiled and fit.
-	"""
-	
-	#laughter_model = load_model(pre_trained_model_path)
-	#f_model = Model(laughter_model.inputs, laughter_model.layers[-2].output) 
-	#model = Sequential()
-	#for layer in f_model.layers:
-		#model.add(layer)
-	#if freeze_layers:
-		#for layer in model.layers:
-			#layer.trainable = False
-	#model.add(Dense(8, activation='sigmoid', name='hyena_on_laughter'))
-
-	laughter_model = load_model(pre_trained_model_path)
-	p_model = Model(laughter_model.inputs, laughter_model.layers[-2].output)
+		pretrained Keras model which can then be compiled and fit.
+	"""	
+	laughter_model = load_model(pre_trained_model_path) # load parent model
+	p_model = Model(laughter_model.inputs, laughter_model.layers[-2].output) # remove last layer
 	x = p_model.output
-	x = Dense(8, activation='sigmoid', name='hyena_on_laughter')(x)
+	x = Dense(8, activation='sigmoid', name='hyena_on_laughter')(x) # add last layer in hyena data format
 	model = Model(inputs=p_model.input, outputs=x)
 	if freeze_layers:
 		for layer in p_model.layers:
@@ -99,7 +87,7 @@ def create_pretrain_model(freeze_layers, pre_trained_model_path):
 
 
 def create_baseline_model(filters, gru_units, dropout, bias, mels):
-    """Create convolutional recurrent model.
+    """Create baseline convolutional recurrent model.
 
     # Arguments
         filters: number of filters in the convolutional layers.
@@ -221,7 +209,8 @@ def plot_loss(model_fit, save_folder):
 
 
 def plot_ROC(model, x_test, y_test, save_folder):
-    """
+    """Plot and save the ROC with AUC value.
+    
     # Arguments
         model: model after training.
         x_test: inputs to the network for testing.
@@ -303,7 +292,8 @@ def save_arch(model, save_folder):
 
 
 def reformat(dataset):
-    """
+    """Reformat data into a suitable format.
+    
     # Arguments
         dataset: dataset in format (id, spectro, label)
         
@@ -320,14 +310,14 @@ def reformat(dataset):
 
 
 def scale(original_train, new_train):
-    """Find value to scale by, based on magnitudes.
+    """Find scaling value.
     
     # Arguments
         original: data that was used to originally train the network.
         new_train: data that will be used to fine tune network.
     
     # Returns
-        value to use to scale.
+        scaling value.
     """
     # find magnitude original training data
     o_mag = np.linalg.norm(np.stack(original_train[:,1]))
