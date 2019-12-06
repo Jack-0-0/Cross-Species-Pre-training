@@ -136,7 +136,8 @@ def save_folder(date_time, sfid):
     """
     date_now = str(date_time.date())
     time_now = str(date_time.time())
-    sf = "saved_models/" + date_now + "_" + time_now + "_" + os.path.basename(__file__).split('.')[0] + '_' + sfid
+    sf = "saved_models/" + date_now + "_" + time_now + "_" \
+	+ os.path.basename(__file__).split('.')[0] + '_' + sfid
     if not os.path.isdir(sf):
         os.makedirs(sf)
     return sf
