@@ -1,5 +1,5 @@
 # Preprocessing
-Two datasets are necessary for the experiments in this project. The laughter datasets can be created by following the steps [here](https://github.com/Jack-0-0/Laughter-Detection/tree/master/preprocessing).
+Two types of data are necessary for the experiments in this project, human speech and hyena calls. The human datasets can be created by following the steps [here](https://github.com/Jack-0-0/Laughter-Detection/tree/master/preprocessing).
 
 This section will detail how to convert the hyena audio files into train, test and validation datasets in the format [id, spectrogram, label]. 
 
