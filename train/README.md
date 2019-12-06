@@ -163,7 +163,7 @@ if scaling:
 
 # set save folder identifier
 # save folder will be named in format saved_models/date_time_filename_sfid 
-sfid = 'unfrozen' 
+sfid = 'unfrozen_PCEN' 
 
 ########################
 ```
