@@ -18,6 +18,11 @@ Train, test and validation datasets (with and without PCEN) can be found at impo
 
 Alternatively they can be created as described [here](/preprocessing).
 
+## Parent Models
+The parent models can be found in the 'parent' folder in cross_species_models.zip.
+
+Alternatively they can be created as described [here](https://github.com/Jack-0-0/Laughter-Detection/tree/master/train). The parent models are trained on all three language datasets at 8,000 Hz.
+
 ## Usage
 Open cross_species_train.py and change the variables under the settings section at the top of the file. 
 
