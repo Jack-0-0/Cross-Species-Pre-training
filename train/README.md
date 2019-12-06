@@ -14,7 +14,7 @@ The following packages are needed to train the networks:
 * cuda 9.0
 
 ## Datasets
-Train, test and validation datasets (with and without PCEN) can be found at import/c4dm-04.
+Train, test and validation datasets (with and without PCEN) can be found at import/c4dm-04/jackr.
 
 Alternatively they can be created as described [here](/preprocessing).
 
